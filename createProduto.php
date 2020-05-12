@@ -2,6 +2,11 @@
 
 include('functions.php');
 
+session_start();
+if (!$_SESSION) {
+header('location: login.php');
+}
+
 $extensaoFoto = ['image/jpeg', 'image/png', 'image/jpg'];
 
 $precoOk = true;

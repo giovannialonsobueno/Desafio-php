@@ -1,10 +1,13 @@
 <?php
 
 include('functions.php');
-
+session_start();
+if (!$_SESSION) {
+header('location: login.php');
+}
 
   function chamar(){
-  $produto = pegarProduto($_POST['nomeId']);
+  $produto = pegarProduto($_POST['nomeID']);
 
   if($produto) {
     echo $produto['produto'];
@@ -20,7 +23,7 @@ include('functions.php');
 
 <form class="" action="showProduto.php" method="post">
   <label for="">Digite o ID</label>
-  <input type="text" name="nomeId" placeholder="id Produto">
+  <input type="text" name="nomeID" placeholder="id Produto">
   <button type="submit" name="buscar">Buscar Produto</button>
 </form>
 
@@ -28,6 +31,7 @@ include('functions.php');
 
 if ($_POST) {
   chamar();
-  deletar();
 }
  ?>
+
+<a href="showProduto.php">Deletar Produto</a>

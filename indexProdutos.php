@@ -1,6 +1,11 @@
 <?php
 include('functions.php');
 
+session_start();
+if (!$_SESSION) {
+header('location: login.php');
+}
+
 $produtos = carregaProduto();
 
 
@@ -13,4 +18,4 @@ foreach ($produtos as $produto) {
 
 ?>
 
-<a href="showProduto.php?id=<?php echo $_GET['id'];?>">Ver mais</a>
+<a href="showProduto.php">Ver mais</a>

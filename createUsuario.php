@@ -1,7 +1,10 @@
 <?php
 
 include('functions.php');
-
+session_start();
+if (!$_SESSION) {
+header('location: login.php');
+}
 
 if($_POST){
 
@@ -25,6 +28,7 @@ if($_POST){
     if($nomeOk and $senhaOk and $emailOk){
         $cripto= password_hash($senha, PASSWORD_DEFAULT);
         addUsuario($nome,$email,$cripto);
+        header('location: indexUsuario.php');
     }
 }
  ?>

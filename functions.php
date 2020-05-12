@@ -19,6 +19,17 @@ function addProduto($produto, $preco, $imagem,$descricao=''){
         if($data){file_put_contents('produtos.json', $data);}
 }
 
+
+function pegarProduto($id){
+  $produtos = carregaProduto();
+  foreach ($produtos as $produto) {
+    if($produto['id'] == $id) {
+      return $produto;
+    }
+  }
+  return false;
+}
+
 function carregaUsuarios(){
 
         $strJson = file_get_contents("usuarios.json");
@@ -33,7 +44,12 @@ function carregaUsuarios(){
 
         $usuarios = carregaUsuarios();
 
-        $user = ['$nome'=>$nome, '$email'=>$email, '$senha'=>$senha];
+        if (empty($usuarios)) {
+          $id = 1;
+        } else {
+          $id = sizeof($usuarios) +1;
+        }
+        $user = ['usuario'=>$id, 'nome'=>$nome, 'email'=>$email, 'senha'=>$senha];
 
         $usuarios[]= $user;
 
@@ -44,14 +60,17 @@ function carregaUsuarios(){
         }
     }
 
-function pegarProduto($id){
-  $produtos = carregaProduto();
-  foreach ($produtos as $produto) {
-    if($produto['id'] == $id) {
-      return $produto;
+
+    function pegaUsuario($id){
+    $usuario = carregaUsuarios();
+    foreach ($usuario as $user) {
+        if($user['usuario'] == $id){
+            return $user;
+        }
     }
-  }
-  return false;
+    return false;
 }
+
+
 
  ?>

@@ -28,7 +28,7 @@ if($_POST){
     if($nomeOk and $senhaOk and $emailOk){
         $cripto= password_hash($senha, PASSWORD_DEFAULT);
         addUsuario($nome,$email,$cripto);
-        header('location: indexUsuario.php');
+        header('location: login.php');
     }
 }
  ?>

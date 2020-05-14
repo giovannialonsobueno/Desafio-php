@@ -30,6 +30,8 @@ function pegarProduto($id){
   return false;
 }
 
+
+
 function carregaUsuarios(){
 
         $strJson = file_get_contents("usuarios.json");

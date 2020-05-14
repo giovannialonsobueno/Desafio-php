@@ -3,7 +3,7 @@ include('functions.php');
 
 session_start();
 if ($_SESSION) {
-header('location: createProduto.php');
+header('location: createUsuario.php');
 }
 
 $loginOk = true;
@@ -15,7 +15,7 @@ if($_POST){
   foreach($usuarios as $usuario){
     if( ($usuario['email'] || $usuario['nome']) == $login && $usuario['senha'] == password_verify($senha,$usuario['senha'])){
       $_SESSION['usuario'] = $usuario['usuario'];
-      header('location: indexUsuario.php');
+      header('location: home.php');
     } else {
       $loginOk = false;
     }
@@ -23,7 +23,7 @@ if($_POST){
 }
 ?>
 
-
+<p>a senha é 123456</p>
 <form class="" action="" method="post">
   <label for="">Digite seu e-mail</label>
   <input type="text" name="login" value="">

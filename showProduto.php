@@ -34,4 +34,8 @@ if ($_POST) {
 }
  ?>
 
-<a href="showProduto.php">Deletar Produto</a>
+
+<form action="delete.php" method="post">
+  <input type="hidden" name="delete" value="<?= $produto['id'] ?>">
+  <button>Deletar</button>
+</form>

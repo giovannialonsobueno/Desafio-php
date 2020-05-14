@@ -14,8 +14,7 @@ foreach ($produtos as $produto) {
   echo $produto['produto'];
   echo $produto['preco'];
   echo $produto['descricao'];
+  echo '<br>';
   }
-
 ?>
-
-<a href="showProduto.php">Ver mais</a>
+  <a href="showProduto.php">Ver mais</a> 
